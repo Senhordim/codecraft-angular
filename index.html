@@ -1,23 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="minmax">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Data Binding</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<script src="bower_components/angular/angular.min.js"></script>
+	
 </head>
 <body>
-	<div class="container" ng-init="title='CodeCraft'; awesome=true;">
-		<h1>{{title}} is Awesome: {{awesome}} </h1>
+	<div class="container main-content" ng-controller="MainMaxCtrl">
+		<h2> Signup</h2>
+		<hr>
+		<form>
 
-		<input type="text"
-					 class="form-control"
-					 ng-model="title" />
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text"
+						 class="form-control"
+						 ng-model="formModel.name"
+						 id="name" />
+			</div>
 
-		<input type="checkbox"
-					 class="form-control"
-					 ng-model="awesome" />
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email"
+						 class="form-control"
+						 ng-model="formModel.email"
+						 id="email" />
+			</div>
+
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password"
+						 class="form-control"
+						 ng-model="formModel.password"
+						 id="password" />
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-primary" ng-click="onSubmit()">Register</button>
+			</div>
+		</form>
+
+		<pre>{{ formModel | json}}</pre>
 	</div>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="assets/javascripts/main.js"></script>
 </body>
 </html>
